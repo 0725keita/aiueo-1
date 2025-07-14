@@ -2,36 +2,91 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>私のAIプロフィール</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>架空の国の歴史</title>
   <style>
     body {
-      font-family: sans-serif;
-      background-color: #f2f2f2;
-      margin: 0;
-      padding: 2rem;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f4f4;
       color: #333;
-    }
-    .container {
-      background: white;
       padding: 2rem;
-      max-width: 600px;
-      margin: 0 auto;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      max-width: 900px;
+      margin: auto;
     }
     h1 {
-      color: #008080;
+      text-align: center;
+      color: #004080;
+    }
+    .era-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .era-button {
+      padding: 1rem 2rem;
+      border: none;
+      background: #0080c0;
+      color: white;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .era-button:hover {
+      background: #005f90;
+    }
+    .era-content {
+      display: none;
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    }
+    .active {
+      display: block;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>こんにちは、AIが作ったサイトです！</h1>
-    <p>このページは、AIが自動生成したサンプルのWebサイトです。</p>
-    <p>名前：佐藤 太郎</p>
-    <p>趣味：プログラミング、旅行、ラーメン巡り</p>
-    <p>一言：Netlifyで公開中です！</p>
+  <h1>架空の国「レムリア王国」の歴史</h1>
+
+  <div class="era-list">
+    <button class="era-button" onclick="showEra('ancient')">古代時代</button>
+    <button class="era-button" onclick="showEra('middle')">中世時代</button>
+    <button class="era-button" onclick="showEra('reform')">改革時代</button>
+    <button class="era-button" onclick="showEra('industrial')">工業時代</button>
+    <button class="era-button" onclick="showEra('modern')">現代時代</button>
   </div>
+
+  <div id="ancient" class="era-content">
+    <h2>古代時代</h2>
+    <p>紀元前1200年ごろ、レムリアの祖とされる王族が北の大陸から移住し、最初の都市国家が形成された。火山信仰が盛んで、神殿建築が多く残っている。</p>
+  </div>
+  <div id="middle" class="era-content">
+    <h2>中世時代</h2>
+    <p>王政が確立し、騎士制度が登場。神聖教団による支配が強まり、宗教戦争が国内を二分した。美術と詩の黄金期とも言われる。</p>
+  </div>
+  <div id="reform" class="era-content">
+    <h2>改革時代</h2>
+    <p>14世紀、賢王ミルセリアによる改革が進み、法典が整備された。農地の開放や民衆議会の設立など、近代国家への基盤が築かれる。</p>
+  </div>
+  <div id="industrial" class="era-content">
+    <h2>工業時代</h2>
+    <p>18世紀、蒸気機関の発明により急速な都市化と産業革命が進む。貧富の差が広がるが、労働者運動が高まり新たな社会制度が芽生える。</p>
+  </div>
+  <div id="modern" class="era-content">
+    <h2>現代時代</h2>
+    <p>統一憲章の制定、AIと魔導技術の融合、他国との平和協定により、レムリア王国は「知の時代」へと移行した。現在は宇宙開発を国策に掲げている。</p>
+  </div>
+
+  <script>
+    function showEra(id) {
+      const sections = document.querySelectorAll('.era-content');
+      sections.forEach(section => section.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
 </body>
 </html>
